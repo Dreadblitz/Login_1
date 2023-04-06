@@ -1,0 +1,56 @@
+<div class="login-container">
+  <mat-card class="custom-card">
+    <img src="assets/images/logo_coys.png" alt="Logo Coys" class="logo">
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="input-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Usuario</mat-label>
+            <input
+              matInput
+              required
+              [(ngModel)]="usuario"
+              name="usuario"
+              #usuarioInput="ngModel"
+              class="no-error"
+              (blur)="disableRealTimeValidation(usuarioInput)"
+              (input)="clearError()"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              required
+              [(ngModel)]="contrasena"
+              name="contrasena"
+              #contrasenaInput="ngModel"
+              class="no-error"
+              (blur)="disableRealTimeValidation(contrasenaInput)"
+              (input)="clearError()"
+            />
+            <mat-icon matSuffix (click)="hide = !hide" class="dark-gray-icon">
+              {{ hide ? 'visibility' : 'visibility_off' }}
+            </mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="loginForm.invalid"
+          >
+            Iniciar sesión
+          </button>
+        </div>
+      </form>
+      <div *ngIf="errorMensaje" class="error-message" style="text-align: center">{{ errorMensaje }}</div>
+    </mat-card-content>
+  </mat-card>
+</div>

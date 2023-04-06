@@ -1,0 +1,35 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.no-error.ng-invalid.ng-touched .mat-form-field-outline-thick {
+  color: inherit;
+}
+
+.logo {
+  width: 140px; /* Ajusta este valor al tamaño deseado */
+  height: auto;
+  display: block;
+  margin: 0 auto 40px; /* Ajusta el último valor (16px) para modificar el espacio entre el logo y el formulario */
+}
+
+.error-message {
+  color: rgba(198, 53, 53, 0.914);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.text-center {
+  text-align: center;
+}

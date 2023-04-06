@@ -1,0 +1,53 @@
+<div class="personal-container">
+  <div *ngIf="personalCoysList.length > 0">
+    <mat-form-field appearance="fill">
+      <mat-label>Filtrar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Escribe para filtrar">
+    </mat-form-field>
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="Nombre">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Nombre }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Apellido">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Apellido }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Cargo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Cargo</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Cargo }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Dni">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>DNI</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Dni }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Legajo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Legajo</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Legajo }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Mail_Empresa">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Mail Empresa</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Mail_Empresa }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Mail_Personal">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Mail Personal</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Mail_Personal }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Nro_Cell">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nro. Cell</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Nro_Cell }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

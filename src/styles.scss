@@ -1,0 +1,84 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$custom-primary: (
+  50: #e0f3fc,
+  100: #b3e0f9,
+  200: #80ccf6,
+  300: #4db8f3,
+  400: #26a9f0,
+  500: #0092c7,
+  600: #008bc4,
+  700: #0083c0,
+  800: #007bbc,
+  900: #006fb4,
+  A100: #b3e0f9,
+  A200: #80ccf6,
+  A400: #26a9f0,
+  A700: #0083c0,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff,
+  ),
+);
+
+$login_1-primary: mat.define-palette($custom-primary);
+$login_1-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$login_1-warn: mat.define-palette(mat.$red-palette);
+
+$login_1-theme: mat.define-light-theme((
+  color: (
+    primary: $login_1-primary,
+    accent: $login_1-accent,
+    warn: $login_1-warn,
+  )
+));
+
+@include mat.all-component-themes($login_1-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.login-container {
+  background-image: linear-gradient(135deg, #0092c7 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+mat-card.custom-card {
+  border-radius: 30px; // RADIO DEL BORDE DE LA TARJETA
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+  padding-top: 30px; // Agrega esta línea con el valor de margen deseado
+}
+
+.input-container {
+  margin-bottom: 24px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  border-radius: 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  height: 48px; // Agrega esta línea para cambiar el alto del botón
+  font-size: 16px; // Agrega esta línea para cambiar el tamaño de la letra
+}
+
+.dark-gray-icon {
+  color: #698695; // Ajusta este valor al tono de gris oscuro que prefieras
+}
