@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { db } from './app.module';
 
 @Injectable({
@@ -11,6 +11,21 @@ export class PersonalCoysService {
   async obtenerPersonalCoys(): Promise<any[]> {
     const personalCoysRef = collection(db, 'Personal_Coys');
     const personalCoysSnapshot = await getDocs(personalCoysRef);
-    return personalCoysSnapshot.docs.map((doc) => doc.data());
+    return personalCoysSnapshot.docs.map((doc) => {
+      const data = doc.data();
+      data['id'] = doc.id; // Añadir el ID del documento para facilitar la actualización
+      return data;
+    });
+  }
+
+  // Método para actualizar el registro de Personal_Coys en Firebase
+  async actualizarPersonalCoys(personalCoys: any): Promise<void> {
+    if (!personalCoys.id) {
+      throw new Error('No se proporcionó el ID del documento');
+    }
+    const personalCoysRef = doc(db, 'Personal_Coys', personalCoys.id);
+    // Eliminar la propiedad 'id' del objeto para no almacenarla en Firebase
+    const { id, ...personalCoysData } = personalCoys;
+    await updateDoc(personalCoysRef, personalCoysData);
   }
 }

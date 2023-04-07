@@ -5,19 +5,39 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Escribe para filtrar">
     </mat-form-field>
     <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="Legajo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Legajo</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Legajo }}</mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="Nombre">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
-        <mat-cell *matCellDef="let personal">{{ personal.Nombre }}</mat-cell>
+        <mat-cell *matCellDef="let personal">
+          <div *ngIf="!personal.editMode">{{ personal.Nombre }}</div>
+          <mat-form-field *ngIf="personal.editMode" appearance="fill">
+            <input matInput [(ngModel)]="personal.Nombre">
+          </mat-form-field>
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Apellido">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</mat-header-cell>
-        <mat-cell *matCellDef="let personal">{{ personal.Apellido }}</mat-cell>
+        <mat-cell *matCellDef="let personal">
+          <div *ngIf="!personal.editMode">{{ personal.Apellido }}</div>
+          <mat-form-field *ngIf="personal.editMode" appearance="fill">
+            <input matInput [(ngModel)]="personal.Apellido">
+          </mat-form-field>
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Cargo">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Cargo</mat-header-cell>
-        <mat-cell *matCellDef="let personal">{{ personal.Cargo }}</mat-cell>
+        <mat-cell *matCellDef="let personal">
+          <div *ngIf="!personal.editMode">{{ personal.Cargo }}</div>
+          <mat-form-field *ngIf="personal.editMode" appearance="fill">
+            <input matInput [(ngModel)]="personal.Cargo">
+          </mat-form-field>
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Dni">
@@ -25,9 +45,9 @@
         <mat-cell *matCellDef="let personal">{{ personal.Dni }}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="Legajo">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Legajo</mat-header-cell>
-        <mat-cell *matCellDef="let personal">{{ personal.Legajo }}</mat-cell>
+      <ng-container matColumnDef="Nro_Cell">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nro. Cell</mat-header-cell>
+        <mat-cell *matCellDef="let personal">{{ personal.Nro_Cell }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Mail_Empresa">
@@ -39,18 +59,17 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>Mail Personal</mat-header-cell>
         <mat-cell *matCellDef="let personal">{{ personal.Mail_Personal }}</mat-cell>
       </ng-container>
-
-      <ng-container matColumnDef="Nro_Cell">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Nro. Cell</mat-header-cell>
-        <mat-cell *matCellDef="let personal">{{ personal.Nro_Cell }}</mat-cell>
-      </ng-container>
-
-      <!-- Nueva columna para el botón de edición -->
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
-        <mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="edit(row)">
+        <mat-cell *matCellDef="let personal">
+          <button *ngIf="!personal.editMode" mat-icon-button (click)="edit(personal)">
             <mat-icon>edit</mat-icon>
+          </button>
+          <button *ngIf="personal.editMode" mat-icon-button (click)="save(personal)">
+            <mat-icon>save</mat-icon>
+          </button>
+          <button *ngIf="personal.editMode" mat-icon-button (click)="cancelEditMode(personal)">
+            <mat-icon>cancel</mat-icon>
           </button>
         </mat-cell>
       </ng-container>

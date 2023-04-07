@@ -21,7 +21,7 @@ export class PersonalComponent implements OnInit, AfterViewInit {
     'Nro_Cell',
     'Mail_Empresa',
     'Mail_Personal',
-    'actions', // Agrega una columna para los botones de acción
+    'actions',
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -33,6 +33,7 @@ export class PersonalComponent implements OnInit, AfterViewInit {
 
   async ngOnInit() {
     this.personalCoysList = await this.personalCoysService.obtenerPersonalCoys();
+    this.personalCoysList = this.personalCoysList.map(personal => ({ ...personal, editMode: false }));
     this.dataSource.data = this.personalCoysList;
   }
 
@@ -51,7 +52,16 @@ export class PersonalComponent implements OnInit, AfterViewInit {
   }
 
   edit(row: any) {
-    console.log('edit', row);
-    // Agrega aquí la lógica para abrir la página de edición y pasar los datos del registro seleccionado
+    row.editMode = !row.editMode;
+  }
+
+  async save(row: any) {
+    await this.personalCoysService.actualizarPersonalCoys(row);
+    row.editMode = false;
+  }
+
+  // Método cancelEditMode para cancelar la edición
+  cancelEditMode(row: any) {
+    row.editMode = false;
   }
 }
