@@ -45,6 +45,16 @@
         <mat-cell *matCellDef="let personal">{{ personal.Nro_Cell }}</mat-cell>
       </ng-container>
 
+      <!-- Nueva columna para el botón de edición -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="edit(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>

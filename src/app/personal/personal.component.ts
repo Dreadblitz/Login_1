@@ -21,6 +21,7 @@ export class PersonalComponent implements OnInit, AfterViewInit {
     'Nro_Cell',
     'Mail_Empresa',
     'Mail_Personal',
+    'actions', // Agrega una columna para los botones de acción
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -47,5 +48,10 @@ export class PersonalComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  edit(row: any) {
+    console.log('edit', row);
+    // Agrega aquí la lógica para abrir la página de edición y pasar los datos del registro seleccionado
   }
 }
