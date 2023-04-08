@@ -1,8 +1,8 @@
 <div class="personal-container">
   <div *ngIf="personalCoysList.length > 0">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="filtro">
       <mat-label>Filtrar</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Escribe para filtrar">
+      <input matInput (keyup)="applyFilter($event)" placeholder="">
     </mat-form-field>
     <mat-table [dataSource]="dataSource" matSort>
       
@@ -104,6 +104,6 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-paginator-custom"></mat-paginator>
   </div>
 </div>

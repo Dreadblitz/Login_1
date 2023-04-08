@@ -9,27 +9,64 @@
 }
 
 .mat-column-Legajo {
-  flex: 0 0 80px; /* ajusta el ancho a tu gusto */
-}
-.mat-column-Nombre {
-  flex: 0 0 120px; /* ajusta el ancho a tu gusto */
-}
-.mat-column-Apellido {
-  flex: 0 0 120px; /* ajusta el ancho a tu gusto */
-}
-.mat-column-Cargo {
-  flex: 0 0 150px; /* ajusta el ancho a tu gusto */
-}
-.mat-column-Dni {
   flex: 0 0 90px; /* ajusta el ancho a tu gusto */
 }
+
+.mat-column-Nombre {
+  flex: 0 0 130px; /* ajusta el ancho a tu gusto */
+}
+
+.mat-column-Apellido {
+  flex: 0 0 130px; /* ajusta el ancho a tu gusto */
+}
+
+.mat-column-Cargo {
+  flex: 0 0 270px; /* ajusta el ancho a tu gusto */
+}
+
+.mat-column-Dni {
+  flex: 0 0 100px; /* ajusta el ancho a tu gusto */
+}
+
 .mat-column-Nro_Cell {
   flex: 0 0 120px; /* ajusta el ancho a tu gusto */
-}.mat-column-Mail_Empresa {
-  flex: 0 0 200px; /* ajusta el ancho a tu gusto */
-}.mat-column-Mail_Personal  {
-  flex: 0 0 200px; /* ajusta el ancho a tu gusto *///actions
 }
+
+.mat-column-Mail_Empresa {
+  flex: 0 0 220px; /* ajusta el ancho a tu gusto */
+}
+
+.mat-column-Mail_Personal {
+  flex: 0 0 220px; /* ajusta el ancho a tu gusto */
+}
+
 .mat-column-actions {
   flex: 0 0 100px;
+}
+
+mat-table {
+  flex: 1 1 0;
+  width: 100%;
+  max-width: 1200px; // ajusta el ancho máximo a tu gusto
+  table-layout: fixed;
+}
+
+.mat-paginator-custom {
+  width: 1400px; /* ajusta el ancho a tu gusto */
+  display: flex;
+  justify-content: center;
+  margin-top: 3px;
+}
+
+.filtro {
+  margin-bottom: 2px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 350px;
+
 }
