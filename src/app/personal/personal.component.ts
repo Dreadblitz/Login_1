@@ -52,8 +52,12 @@ export class PersonalComponent implements OnInit, AfterViewInit {
   }
 
   edit(row: any) {
+    if (!row.editMode) {
+      row.originalData = { ...row }; // Almacena una copia de los datos originales antes de editar
+    }
     row.editMode = !row.editMode;
   }
+  
 
   async save(row: any) {
     await this.personalCoysService.actualizarPersonalCoys(row);
@@ -61,7 +65,15 @@ export class PersonalComponent implements OnInit, AfterViewInit {
   }
 
   // Método cancelEditMode para cancelar la edición
-  cancelEditMode(row: any) {
+  cancel(row: any) {
     row.editMode = false;
+    // Revertir los cambios realizados en el modo de edición
+    const index = this.personalCoysList.findIndex(personal => personal.id === row.id);
+    if (index !== -1) {
+      this.personalCoysList[index] = { ...row.originalData };
+      this.dataSource.data = [...this.personalCoysList];
+    }
   }
+  
+  
 }
