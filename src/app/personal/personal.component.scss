@@ -1,9 +1,35 @@
 .personal-container {
-    background-image: linear-gradient(135deg, #0092c7 0%, #ffffff 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100%;
-    padding-top: 20px;
-  }
+  background-image: linear-gradient(135deg, #0092c7 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 20px;
+}
+
+.mat-column-Legajo {
+  flex: 0 0 80px; /* ajusta el ancho a tu gusto */
+}
+.mat-column-Nombre {
+  flex: 0 0 120px; /* ajusta el ancho a tu gusto */
+}
+.mat-column-Apellido {
+  flex: 0 0 120px; /* ajusta el ancho a tu gusto */
+}
+.mat-column-Cargo {
+  flex: 0 0 150px; /* ajusta el ancho a tu gusto */
+}
+.mat-column-Dni {
+  flex: 0 0 90px; /* ajusta el ancho a tu gusto */
+}
+.mat-column-Nro_Cell {
+  flex: 0 0 120px; /* ajusta el ancho a tu gusto */
+}.mat-column-Mail_Empresa {
+  flex: 0 0 200px; /* ajusta el ancho a tu gusto */
+}.mat-column-Mail_Personal  {
+  flex: 0 0 200px; /* ajusta el ancho a tu gusto *///actions
+}
+.mat-column-actions {
+  flex: 0 0 100px;
+}

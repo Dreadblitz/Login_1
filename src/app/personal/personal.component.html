@@ -5,15 +5,17 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Escribe para filtrar">
     </mat-form-field>
     <mat-table [dataSource]="dataSource" matSort>
+      
       <ng-container matColumnDef="Legajo">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Legajo</mat-header-cell>
-        <mat-cell *matCellDef="let personal">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="mat-column-Legajo">Legajo</mat-header-cell>
+        <mat-cell *matCellDef="let personal" class="legajo-column">
           <div *ngIf="!personal.editMode">{{ personal.Legajo }}</div>
           <mat-form-field *ngIf="personal.editMode" appearance="fill" floatLabel="auto">
             <input matInput [(ngModel)]="personal.Legajo">
           </mat-form-field>
         </mat-cell>
       </ng-container>
+         
 
       <ng-container matColumnDef="Nombre">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
