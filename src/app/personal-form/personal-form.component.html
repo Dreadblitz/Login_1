@@ -1,0 +1,48 @@
+<form [formGroup]="registerForm" (ngSubmit)="agregarRegistro()">
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-element">
+        <mat-label>Legajo</mat-label>
+        <input matInput formControlName="Legajo">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-element">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="Nombre">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-element">
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="Apellido">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-element">
+        <mat-label>Cargo</mat-label>
+        <input matInput formControlName="Cargo">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-element">
+        <mat-label>DNI</mat-label>
+        <input matInput formControlName="Dni">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-element">
+        <mat-label>Nro. Cell</mat-label>
+        <input matInput formControlName="Nro_Cell">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-element">
+        <mat-label>Mail Empresa</mat-label>
+        <input matInput formControlName="Mail_Empresa">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-element">
+        <mat-label>Mail Personal</mat-label>
+        <input matInput formControlName="Mail_Personal">
+      </mat-form-field>
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Agregar Registro</button>
+  </form>
+  

@@ -1,10 +1,13 @@
-<div class="personal-container">
-  <div *ngIf="personalCoysList.length > 0">
-    <mat-form-field appearance="fill" class="filtro">
-      <mat-label>Filtrar</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="">
+<div class="container">
+  <h1>Personal</h1>
+  <div class="filter-search">
+    <mat-form-field appearance="outline">
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar por nombre, apellido, etc.">
     </mat-form-field>
-    <mat-table [dataSource]="dataSource" matSort>
+    <button mat-stroked-button color="primary" (click)="openAddPersonalDialog()">Agregar Personal</button>
+  </div>
+  <mat-table [dataSource]="dataSource" matSort>
       
       <ng-container matColumnDef="Legajo">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="mat-column-Legajo">Legajo</mat-header-cell>
@@ -98,12 +101,14 @@
           <button *ngIf="personal.editMode" mat-icon-button (click)="cancel(personal)">
             <mat-icon>cancel</mat-icon>
           </button>
+          <button mat-icon-button (click)="deleteRow(personal)">
+            <mat-icon>delete</mat-icon>
+          </button>
         </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-paginator-custom"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
   </div>
-</div>

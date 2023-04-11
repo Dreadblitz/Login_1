@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms'; // Importa FormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Importa FormsModule y ReactiveFormsModule
 
 // Importa los módulos de AngularFire
 import { AngularFireModule } from '@angular/fire/compat';
@@ -27,18 +27,19 @@ import { getFirestore } from 'firebase/firestore';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-
+import { MatDialogModule } from '@angular/material/dialog'; // Importa MatDialogModule
+import { PersonalFormComponent } from './personal-form/personal-form.component';
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    PersonalComponent
+    PersonalComponent,
+    PersonalFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,16 +50,18 @@ export const db = getFirestore(app);
     MatIconModule,
     MatFormFieldModule,
     FormsModule, // Agrega FormsModule aquí
+    ReactiveFormsModule, // Agrega ReactiveFormsModule aquí
     // Inicializa AngularFire con la configuración de Firebase
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule, // Agrega MatDialogModule aquí
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

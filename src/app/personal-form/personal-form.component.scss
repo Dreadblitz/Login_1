@@ -1,0 +1,24 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .form-element {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  

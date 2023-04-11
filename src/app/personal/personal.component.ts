@@ -3,6 +3,9 @@ import { PersonalCoysService } from '../personal-coys.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { PersonalFormComponent } from '../personal-form/personal-form.component';
+
 
 @Component({
   selector: 'app-personal',
@@ -27,7 +30,10 @@ export class PersonalComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private personalCoysService: PersonalCoysService) {
+  constructor(
+    private personalCoysService: PersonalCoysService,
+    private dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource(this.personalCoysList);
   }
 
@@ -57,7 +63,6 @@ export class PersonalComponent implements OnInit, AfterViewInit {
     }
     row.editMode = !row.editMode;
   }
-  
 
   async save(row: any) {
     await this.personalCoysService.actualizarPersonalCoys(row);
@@ -74,6 +79,25 @@ export class PersonalComponent implements OnInit, AfterViewInit {
       this.dataSource.data = [...this.personalCoysList];
     }
   }
-  
-  
+
+  async openAddPersonalDialog() {
+    const dialogRef = this.dialog.open(PersonalFormComponent, {
+      width: '800px',
+    });
+
+    const result = await dialogRef.afterClosed().toPromise();
+    if (result) {
+      this.personalCoysList.push(result);
+      this.dataSource.data = [...this.personalCoysList];
+    }
+  }
+
+  async deleteRow(row: any) {
+    const index = this.personalCoysList.findIndex(personal => personal.id === row.id);
+    if (index !== -1) {
+      await this.personalCoysService.eliminarPersonalCoys(row);
+      this.personalCoysList.splice(index, 1);
+      this.dataSource.data = [...this.personalCoysList];
+    }
+  }
 }
