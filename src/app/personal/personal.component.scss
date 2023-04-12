@@ -1,4 +1,4 @@
-.personal-container {
+.container {
   background-image: linear-gradient(135deg, #0092c7 0%, #ffffff 100%);
   display: flex;
   flex-direction: column;
@@ -41,29 +41,49 @@
 }
 
 .mat-column-actions {
-  flex: 0 0 100px;
+  flex: 0 0 120px;
 }
 
 mat-table {
-  flex: 1 1 0;
   width: 100%;
-  max-width: 1200px; // ajusta el ancho máximo a tu gusto
-  table-layout: fixed;
+  max-width: 1400px; // ajusta el ancho máximo a tu gusto
+  min-width: 1200px;
+  border: 1px solid gray; 
+  
 }
 
-.mat-paginator-custom {
-  width: 1400px; /* ajusta el ancho a tu gusto */
+mat-paginator {
+  width: 100%;
+  max-width: 1400px; // ajusta el ancho máximo a tu gusto
+  min-width: 1200px;
+  margin-top: 4px;
+  border: 1px solid gray;
+}
+
+.filter-search {
+  //margin-bottom: 2px;
   display: flex;
-  justify-content: center;
-  margin-top: 3px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 1400px;
+  
 }
 
-.filtro {
+button.agregar-personal {
+  background-color: white;
+  color: #0092c7;
+  border: 1px solid gray;
+}
+
+mat-form-field {
   margin-bottom: 2px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
-  width: 350px;
+  justify-content: space-between;
+  min-width: 500px;
+  //border: 1px solid gray;
 }

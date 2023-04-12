@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>Personal</h1>
   <div class="filter-search">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="fill">
       <mat-label>Buscar</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar por nombre, apellido, etc.">
+      <input matInput (keyup)="applyFilter($event)" placeholder="">
     </mat-form-field>
-    <button mat-stroked-button color="primary" (click)="openAddPersonalDialog()">Agregar Personal</button>
+    
+    <button mat-stroked-button color="primary" class="agregar-personal" (click)="openAddPersonalDialog()">➕ Agregar Personal</button>
+
   </div>
   <mat-table [dataSource]="dataSource" matSort>
       

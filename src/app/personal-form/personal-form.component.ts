@@ -36,7 +36,7 @@ export class PersonalFormComponent {
       await this.personalCoysService.agregarPersonalCoys(nuevoRegistro); // Llamar al método "agregarPersonalCoys"
       this.onAgregarRegistro.emit(nuevoRegistro);
       this.registerForm.reset();
-      this.dialogRef.close();
+      this.dialogRef.close();// agregue esto
     }
   }
 }
