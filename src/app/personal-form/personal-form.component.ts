@@ -22,10 +22,10 @@ export class PersonalFormComponent {
       Legajo: ['', Validators.required],
       Nombre: ['', Validators.required],
       Apellido: ['', Validators.required],
-      Cargo: ['', Validators.required],
-      Dni: ['', Validators.required],
-      Nro_Cell: ['', Validators.required],
-      Mail_Empresa: ['', Validators.required],
+      Cargo: [''],
+      Dni: [''],
+      Nro_Cell: [''],
+      Mail_Empresa: [''],
       Mail_Personal: ['', Validators.required]
     });
   }

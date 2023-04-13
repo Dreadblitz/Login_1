@@ -5,7 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { PersonalFormComponent } from '../personal-form/personal-form.component';
-
+import { firstValueFrom, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs'; // Importa Subject aquí
 
 @Component({
   selector: 'app-personal',
@@ -30,6 +31,8 @@ export class PersonalComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  private onDestroy = new Subject<void>(); // Agrega esto aquí
+
   constructor(
     private personalCoysService: PersonalCoysService,
     private dialog: MatDialog
@@ -41,11 +44,29 @@ export class PersonalComponent implements OnInit, AfterViewInit {
     this.personalCoysList = await this.personalCoysService.obtenerPersonalCoys();
     this.personalCoysList = this.personalCoysList.map(personal => ({ ...personal, editMode: false }));
     this.dataSource.data = this.personalCoysList;
+
+    this.personalCoysService
+      .getPersonalCoysChangedObservable()
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(() => {
+        this.reloadData();
+      });
+  }
+
+  async reloadData() {
+    this.personalCoysList = await this.personalCoysService.obtenerPersonalCoys();
+    this.personalCoysList = this.personalCoysList.map(personal => ({ ...personal, editMode: false }));
+    this.dataSource.data = this.personalCoysList;
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  ngOnDestroy() {
+    this.onDestroy.next();
+    this.onDestroy.complete();
   }
 
   applyFilter(event: Event) {
@@ -80,18 +101,24 @@ export class PersonalComponent implements OnInit, AfterViewInit {
     }
   }
 
+
   async openAddPersonalDialog() {
     const dialogRef = this.dialog.open(PersonalFormComponent, {
       width: '800px',
     });
-
-    const result = await dialogRef.afterClosed().toPromise();
+  
+    const result = await firstValueFrom(dialogRef.afterClosed());
     if (result) {
       this.personalCoysList.push(result);
       this.dataSource.data = [...this.personalCoysList];
+      // Agregar un setTimeout para recargar la página
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
     }
-  }
-
+  } 
+  
+  
   async deleteRow(row: any) {
     const index = this.personalCoysList.findIndex(personal => personal.id === row.id);
     if (index !== -1) {

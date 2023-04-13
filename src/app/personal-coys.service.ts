@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { collection, getDocs, doc, updateDoc, deleteDoc, addDoc } from 'firebase/firestore';
 import { db } from './app.module';
 
+import { Subject, Observable } from 'rxjs'; // Agrega 'Observable' aquí
+
 @Injectable({
 providedIn: 'root',
 })
@@ -39,6 +41,13 @@ async agregarPersonalCoys(personalCoys: any): Promise<void> {
   const personalCoysRef = collection(db, 'Personal_Coys');
   personalCoys.id = ''; // Vaciar el ID antes de agregarlo a Firestore
   await addDoc(personalCoysRef, personalCoys);
+  this.personalCoysChanged.next();
+}
+
+private personalCoysChanged = new Subject<void>();
+
+getPersonalCoysChangedObservable(): Observable<void> {
+  return this.personalCoysChanged.asObservable();
 }
 
 }
