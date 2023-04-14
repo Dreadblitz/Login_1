@@ -30,6 +30,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog'; // Importa MatDialogModule
 import { PersonalFormComponent } from './personal-form/personal-form.component';
 
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
+
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
@@ -43,6 +49,9 @@ export const db = getFirestore(app);
   ],
   imports: [
     BrowserModule,
+    MatToolbarModule,
+    MatListModule,
+    MatSidenavModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
