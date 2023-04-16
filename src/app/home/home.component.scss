@@ -1,21 +1,62 @@
 html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  .home-container {
-    background-image: linear-gradient(135deg, #0092c7 0%, #ffffff 100%);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-  }
-  
-  .custom-sidenav {
-    margin-top: 65px; // Ajusta este valor según la altura de tu MatToolbar
-  }
-  
-  ::ng-deep .mat-drawer-container .mat-drawer-backdrop.mat-drawer-shown {
-    background-color: transparent !important;
-  }
-  
+  height: 100%;
+  margin: 0;
+}
+
+.home-container {
+  background-image: linear-gradient(135deg, #0092c7 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.custom-sidenav {
+  margin-top: 65px; // Ajusta este valor según la altura de tu MatToolbar
+  width: 250px;
+}
+
+::ng-deep .mat-drawer-container .mat-drawer-backdrop.mat-drawer-shown {
+  background-color: transparent !important;
+}
+
+.sidenav-same-color {
+  background-color: #0092c751 ; // Este es el color predeterminado de "primary" en Angular Material
+}
+
+::ng-deep .sidenav-same-color .mdc-list-item:hover .mdc-list-item__primary-text {
+  color: #fff !important;
+}
+
+::ng-deep .sidenav-same-color .mdc-list-item__primary-text {
+  color: #fff !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-icon {
+  margin-left: auto;
+}
+
+.aligned-item {
+  display: flex;
+  align-items: center;
+}
+
+.aligned-item span {
+  margin-left: 16px;
+}
+
+.logout-item mat-icon {
+  margin-right: 16px;
+  line-height: 1;
+}
+
+
+.separator-line {
+  height: 1px;
+  background-color: #fff;
+  margin-top: 550px; // Ajusta este valor para cambiar la distancia entre las opciones de menú
+}

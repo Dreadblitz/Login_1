@@ -1,8 +1,13 @@
 <mat-sidenav-container class="home-container custom-sidenav-container">
-  <mat-sidenav #sidenav mode="over" fixedInViewport="true" class="custom-sidenav">
+  <mat-sidenav #sidenav mode="over" fixedInViewport="true" class="custom-sidenav sidenav-same-color">
     <mat-nav-list>
       <a mat-list-item routerLink="/recibos-de-sueldo">
-        <span>Recibos de Sueldo</span>
+        <span>⚪ Recibos de Sueldo</span>
+      </a>
+      <div class="separator-line"></div> <!-- Línea agregada -->
+      <a mat-list-item routerLink="/salir" class="logout-item"> <!-- Modificación aquí -->
+        <mat-icon>logout</mat-icon>
+        <span>SALIR</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -12,8 +17,11 @@
       <button mat-icon-button (click)="sidenav.toggle()" matRippleDisabled="true">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Título de la página</span>
-      <!-- Agrega aquí las opciones de menú adicionales si es necesario -->
+      <span>AUTOGESTION COyS</span>
+      <span class="spacer"></span>
+      <button mat-icon-button class="user-icon">
+        <mat-icon>account_circle</mat-icon>
+      </button>
     </mat-toolbar>
     <div class="home-content">
       <!-- Contenido del componente home -->
