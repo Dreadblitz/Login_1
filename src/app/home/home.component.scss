@@ -12,7 +12,7 @@ html, body {
 }
 
 .custom-sidenav {
-  margin-top: 65px; // Ajusta este valor según la altura de tu MatToolbar
+  margin-top: 65px;
   width: 250px;
 }
 
@@ -21,7 +21,7 @@ html, body {
 }
 
 .sidenav-same-color {
-  background-color: #0092c751 ; // Este es el color predeterminado de "primary" en Angular Material
+  background-color: #0092c751;
 }
 
 ::ng-deep .sidenav-same-color .mdc-list-item:hover .mdc-list-item__primary-text {
@@ -54,9 +54,13 @@ html, body {
   line-height: 1;
 }
 
-
 .separator-line {
   height: 1px;
   background-color: #fff;
-  margin-top: 550px; // Ajusta este valor para cambiar la distancia entre las opciones de menú
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%; // Añade esta línea
 }
