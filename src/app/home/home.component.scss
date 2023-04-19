@@ -21,8 +21,8 @@ html, body {
 }
 
 .sidenav-same-color {
-  //background-color: #0092c7;
-  background-image: linear-gradient(135deg, #0092c7 0%, #00c6f3 100%);
+  background-color: #0092c700;
+  //background-image: linear-gradient(135deg, #0092c7 0%, #00c6f3 100%);
 }
 
 ::ng-deep .sidenav-same-color .mdc-list-item:hover .mdc-list-item__primary-text {
@@ -68,13 +68,13 @@ html, body {
 
 /* Estilos para el panel de expansión y los elementos de la lista anidada */
 ::ng-deep .mat-expansion-panel {
-  background: #0092c7;
+  background: #0092c700;
   color: #fff;
 }
 
 /* Estilos para el panel de expansión */
 ::ng-deep .mat-expansion-panel-header {
-  background-color: #0092c7;
+  background-color: #0092c700;
   color: #fff !important;
 }
 
@@ -85,7 +85,8 @@ html, body {
 
 
 ::ng-deep .mat-expansion-panel-content {
-  background-color: #0092c7; // FONDO ATRAS DE LOS AÑOS 
+  //background-image: linear-gradient(135deg, #0092c7 0%, #00c6f3 100%);// FONDO ATRAS DE LOS AÑOS
+  background-color: #0092c700; 
 }
 
 
@@ -96,14 +97,14 @@ html, body {
 
 /* Estilos para los elementos de la lista anidada */
 ::ng-deep .nested-list-item {
-  --mdc-list-list-item-container-color: #0092c7; //FONDO MESES
-  --mdc-list-list-item-selected-container-color: #0092c7;//FONDO MESES
-  --mdc-list-list-item-leading-avatar-color: #0092c7;//FONDO MESES
+  --mdc-list-list-item-container-color: #0092c700; //FONDO MESES
+  --mdc-list-list-item-selected-container-color: #0092c700;//FONDO MESES
+  --mdc-list-list-item-leading-avatar-color: #0092c700;//FONDO MESES
   color: #fff !important;
 }
 
 ::ng-deep .nested-list-item:hover {
-  background-color: rgba(183, 229, 246, 0.8); // FONDO CUANDO SELECIONA MES
+  background-color: rgba(88, 211, 255, 0.8); // FONDO CUANDO SELECIONA MES
   color: #fff !important;
 }
 
@@ -128,5 +129,10 @@ html, body {
 
 /* Estilo para agregar espacio entre las cajas de opciones */
 ::ng-deep .nested-list-item-container {
-  margin-bottom: 8px; // Ajusta este valor según tus necesidades
+  margin-bottom: 5px; // Ajusta este valor según tus necesidades
+}
+
+/* Estilo para agregar espacio debajo del título "RECIBOS DE SUELDO" */
+.custom-header {
+  margin-bottom: 0px; // Ajusta este valor según tus necesidades
 }
