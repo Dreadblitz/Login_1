@@ -123,3 +123,12 @@ html, body {
 ::ng-deep .mat-expansion-indicator::after {
   color: #fff;
 }
+
+/* Estilos para ajustar el título del toolbar */
+.centered-toolbar-title {
+  display: flex;
+  flex-direction: row-reverse; /* Agrega esta línea */
+  justify-content: flex-start;
+  flex: 1;
+  font-size: 1.2em; /* Aumenta un poco el tamaño del texto */
+}
