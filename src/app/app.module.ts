@@ -35,6 +35,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
@@ -49,6 +51,7 @@ export const db = getFirestore(app);
   ],
   imports: [
     BrowserModule,
+    MatExpansionModule,
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
