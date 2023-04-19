@@ -118,3 +118,8 @@ html, body {
 ::ng-deep .mat-list-item.mat-list-item-active {
   background-color: #0092c7 !important;
 }
+
+/* Estilo para el ícono del indicador de expansión */
+::ng-deep .mat-expansion-indicator::after {
+  color: #fff;
+}
