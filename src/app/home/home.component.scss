@@ -83,17 +83,11 @@ html, body {
   color: #fff;
 }
 
-::ng-deep .mat-expansion-panel-header:hover {
-  background-color: rgba(0, 146, 199, 0.8);
-}
 
 ::ng-deep .mat-expansion-panel-content {
-  background-color: #0092c7;
+  background-color: #0092c7; // FONDO ATRAS DE LOS AÑOS 
 }
 
-::ng-deep .mat-action-row {
-  background-color: #0092c7;
-}
 
 /* Estilo para el elemento de la lista "Recibos de Sueldo" */
 ::ng-deep .mat-nav-list .mat-list-item {
@@ -102,21 +96,15 @@ html, body {
 
 /* Estilos para los elementos de la lista anidada */
 ::ng-deep .nested-list-item {
-  --mdc-list-list-item-container-color: #0092c7;
-  --mdc-list-list-item-selected-container-color: #0092c7;
-  --mdc-list-list-item-leading-avatar-color: #0092c7;
+  --mdc-list-list-item-container-color: #0092c7; //FONDO MESES
+  --mdc-list-list-item-selected-container-color: #0092c7;//FONDO MESES
+  --mdc-list-list-item-leading-avatar-color: #0092c7;//FONDO MESES
   color: #fff !important;
-  background-color: #0092c7;
 }
 
 ::ng-deep .nested-list-item:hover {
-  background-color: rgba(0, 146, 199, 0.8);
+  background-color: rgba(183, 229, 246, 0.8); // FONDO CUANDO SELECIONA MES
   color: #fff !important;
-}
-
-/* Estilo para el elemento de la lista anidada seleccionado */
-::ng-deep .mat-list-item.mat-list-item-active {
-  background-color: #0092c7 !important;
 }
 
 /* Estilo para el ícono del indicador de expansión */
@@ -131,4 +119,14 @@ html, body {
   justify-content: flex-start;
   flex: 1;
   font-size: 1.2em; /* Aumenta un poco el tamaño del texto */
+}
+
+/* Estilos para el borde inferior del toolbar */
+.mat-toolbar {
+  border-bottom: 1px solid #fff;
+}
+
+/* Estilo para agregar espacio entre las cajas de opciones */
+::ng-deep .nested-list-item span {
+  margin-bottom: 8px; // Ajusta este valor según tus necesidades
 }
