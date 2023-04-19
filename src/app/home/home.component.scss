@@ -127,6 +127,6 @@ html, body {
 }
 
 /* Estilo para agregar espacio entre las cajas de opciones */
-::ng-deep .nested-list-item span {
+::ng-deep .nested-list-item-container {
   margin-bottom: 8px; // Ajusta este valor según tus necesidades
 }
