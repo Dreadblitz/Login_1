@@ -12,8 +12,9 @@ html, body {
 }
 
 .custom-sidenav {
-  margin-top: 65px;
-  width: 250px;
+  margin-top: 66px;
+  width: 240px;
+  box-shadow: 0px 0px 10px #ffffff, 0px 0px 12px rgba(0, 0, 0, 0.1) inset !important;
 }
 
 ::ng-deep .mat-drawer-container .mat-drawer-backdrop.mat-drawer-shown {
@@ -70,6 +71,8 @@ html, body {
 ::ng-deep .mat-expansion-panel {
   background: #0092c700;
   color: #fff;
+  box-shadow: 0px 0px 4px #ffffff00, 0px 0px 12px rgba(0, 0, 0, 0) inset !important;
+
 }
 
 /* Estilos para el panel de expansión */
@@ -104,7 +107,7 @@ html, body {
 }
 
 ::ng-deep .nested-list-item:hover {
-  background-color: rgba(88, 211, 255, 0.8); // FONDO CUANDO SELECIONA MES
+  background-color: rgba(0, 0, 0, 0); // FONDO CUANDO SELECIONA MES
   color: #fff !important;
 }
 
@@ -129,10 +132,12 @@ html, body {
 
 /* Estilo para agregar espacio entre las cajas de opciones */
 ::ng-deep .nested-list-item-container {
-  margin-bottom: 5px; // Ajusta este valor según tus necesidades
+  margin-bottom: 10px; // Ajusta este valor según tus necesidades
 }
 
 /* Estilo para agregar espacio debajo del título "RECIBOS DE SUELDO" */
 .custom-header {
   margin-bottom: 0px; // Ajusta este valor según tus necesidades
 }
+
+
